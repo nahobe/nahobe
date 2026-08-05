@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>Generic - Forty by HTML5 UP</title>
+		<title>Landing - Forty by HTML5 UP</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -18,14 +18,14 @@
 			<div id="wrapper">
 
 				<!-- Header -->
-					<header id="header">
-					
+				<!-- Note: The "styleN" class below should match that of the banner element. -->
+					<header id="header" class="alt style2">
 						<nav>
 							<a href="#menu">Menu</a>
 						</nav>
 					</header>
 
-				<!-- Menu -->
+				 <!-- Menu -->
                     <nav id="menu">
                         <ul class="links">
                             <li><a href="index.html">Inicio</a></li>
@@ -35,34 +35,96 @@
                         </ul>
                         <ul class="actions stacked">
                             <li><a href="#" class="button primary fit">Ver Proyectos</a></li>
-                            <li><a href="#" class="button fit">Contacto</a></li>
+                            <li><a href="#contact" class="button fit">Contacto</a></li>
                         </ul>
                     </nav>
 
+				<!-- Banner -->
+				<!-- Note: The "styleN" class below should match that of the header element. -->
+					<section id="banner" class="style2">
+						<div class="inner">
+							<span class="image">
+								<img src="images/pic07.jpg" alt="" />
+							</span>
+							<header class="major">
+								<h1>Escritos</h1>
+							</header>
+							<div class="content">
+								<p>Todo lo que me dolió y me duele</p>
+							</div>
+						</div>
+					</section>
+
 				<!-- Main -->
-					<div id="main" class="alt">
+					<div id="main">
 
 						<!-- One -->
 							<section id="one">
 								<div class="inner">
 									<header class="major">
-										<h1>Nahobe Ibarra</h1>
+										<h2>La luz de mi ventana</h2>
 									</header>
-									<span class="image main"><img src="images/pic11.jpg" alt="" /></span>
-									<p>Soy estudiante de Artes Audiovisuales. Me gusta construir relatos a través de lo visual, por eso mi conexión con la fotografía y el cine. También me gusta ilustrar y escribir, creo fielmente que es mi forma de volcar ideas hacia la realidad, de alguna forma lo que hago me conecta al mundo que habito.</p>
-									<p>El montaje es, para mí, una de las maneras más nobles de navegar ideas que no son mías y de alguna forma incorporarlas a mi rutina. Me gustaría poder conectar con más formas de ver la vida ajenas a la mía, por eso sería enriquecedor editar contenido para otras personas.</p>
-									<p>En este portafolio no quiero solo mostrar lo que he hecho, sino también enseñar una parte muy mía, una parte que hasta ponerla en esta página web, solo me pertenecía a mí.</p>
-									<p>Espero que esto que comparto sea un aporte al mundo artístico y a las múltiples miradas que hay en este. Quiero que sea una mirada más de lo que me rodea y con lo que tengo contacto constante.</p>
 								</div>
 							</section>
 
+						<!-- Two -->
+							<section id="two" class="spotlights">
+								<section>
+									<a href="generic.html" class="image">
+										<img src="images/Escritos/La luz de mi ventana.jpg" alt="" data-position="center center" />
+									</a>
+									<div class="content">
+										<div class="inner">
+											<header class="major">
+												<h3>Rendija</h3>
+											</header>
+											
+										</div>
+									</div>
+								</section>
+								<section>
+									<a href="generic.html" class="image">
+										<img src="images/Escritos/Rendija.jpg" alt="" data-position="top center" />
+									</a>
+									<div class="content">
+										<div class="inner">
+											<header class="major">
+												<h3>Impía</h3>
+											</header>
+											
+										</div>
+									</div>
+								</section>
+								<section>
+									<a href="generic.html" class="image">
+										<img src="images/Escritos/Impía.jpg" alt="" data-position="25% 25%" />
+									</a>
+									<div class="content">
+										<div class="inner">
+											<header class="major">
+												<h3>Sed nunc ligula</h3>
+											</header>
+											<p>Nullam et orci eu lorem consequat tincidunt vivamus et sagittis magna sed nunc rhoncus condimentum sem. In efficitur ligula tate urna. Maecenas massa sed magna lacinia magna pellentesque lorem ipsum dolor. Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis tempus.</p>
+											
+										</div>
+									</div>
+								</section>
+							</section>
+
+
 					</div>
 
-				<!-- Contact -->
+				 <!-- Contact -->
                     <section id="contact">
                         <div class="inner">
                             <section>
-                                <form method="post" action="#">
+							  <form method="post" action="https://formsubmit.co/nahobenubli@gmail.com">
+    
+    <!-- Esta línea te redirige a tu página web después de enviar el mensaje -->
+                                    <input type="hidden" name="_next" value="https://nahobe.github.io/nahobe/index.html">
+    <!-- Opcional: Esta línea desactiva el molesto Captcha de "No soy un robot" -->
+                                    <input type="hidden" name="_captcha" value="false">
+        <!-- El resto de tus campos de Nombre, Correo y Mensaje siguen igual -->
                                     <div class="fields">
                                         <div class="field half">
                                             <label for="name">Nombre</label>
@@ -108,7 +170,7 @@
                     <footer id="footer">
                         <div class="inner">
                             <ul class="icons">
-                                <li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
+                                <li><a href="https://www.instagram.com/bitarchiven" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
                             
                             </ul>
                             <ul class="copyright">
@@ -118,7 +180,6 @@
                     </footer>
 
             </div>
-
 
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
