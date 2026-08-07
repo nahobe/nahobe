@@ -22,6 +22,132 @@
         <meta name="twitter:image" content="https://nahobe.github.io/nahobe/images/banner.jpg" />
         <link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<style>
+			/* Photo Grid Gallery */
+			.photo-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+				gap: 1.5em;
+				margin-top: 2em;
+			}
+			.photo-item {
+				position: relative;
+				overflow: hidden;
+				border-radius: 4px;
+				box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+				aspect-ratio: 4 / 3;
+				cursor: pointer;
+			}
+			.photo-item img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+				display: block;
+			}
+			.photo-item:hover img {
+				transform: scale(1.08);
+			}
+			.photo-overlay {
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				background: rgba(36, 41, 67, 0.85); /* Matches template theme */
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				opacity: 0;
+				transition: opacity 0.3s ease;
+				padding: 1em;
+				text-align: center;
+			}
+			.photo-item:hover .photo-overlay {
+				opacity: 1;
+			}
+			.photo-overlay h4 {
+				color: #ffffff;
+				margin: 0 0 0.5em 0;
+				font-size: 1.1em;
+				font-weight: 600;
+				letter-spacing: 0.05em;
+			}
+			.photo-overlay span {
+				color: rgba(255, 255, 255, 0.7);
+				font-size: 0.8em;
+				text-transform: uppercase;
+				letter-spacing: 0.1em;
+				border: 1px solid rgba(255, 255, 255, 0.5);
+				padding: 0.3em 0.8em;
+				border-radius: 2px;
+			}
+
+			/* Lightbox Modal */
+			.lightbox-modal {
+				display: none;
+				position: fixed;
+				z-index: 11000;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background: rgba(10, 12, 22, 0.95);
+				align-items: center;
+				justify-content: center;
+				opacity: 0;
+				transition: opacity 0.3s ease;
+			}
+			.lightbox-modal.active {
+				display: flex;
+				opacity: 1;
+			}
+			.lightbox-content {
+				max-width: 90%;
+				max-height: 85%;
+				position: relative;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+			}
+			.lightbox-img {
+				max-width: 100%;
+				max-height: 75vh;
+				display: block;
+				border-radius: 4px;
+				box-shadow: 0 5px 25px rgba(0,0,0,0.8);
+				transform: scale(0.95);
+				transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+			}
+			.lightbox-modal.active .lightbox-img {
+				transform: scale(1);
+			}
+			.lightbox-close {
+				position: absolute;
+				top: -45px;
+				right: 0;
+				color: #ffffff;
+				font-size: 35px;
+				cursor: pointer;
+				background: none;
+				border: none;
+				padding: 5px 10px;
+				line-height: 1;
+				transition: color 0.2s ease;
+			}
+			.lightbox-close:hover {
+				color: #9bf1ff;
+			}
+			.lightbox-caption {
+				color: #ffffff;
+				text-align: center;
+				margin-top: 15px;
+				font-size: 1em;
+				letter-spacing: 0.05em;
+				font-weight: 300;
+			}
+		</style>
 	</head>
 	<body class="is-preload">
 
@@ -51,17 +177,44 @@
 				<!-- Main -->
 					<div id="main" class="alt">
 
-						<!-- One -->
+						<!-- Gallery Section -->
 							<section id="one">
 								<div class="inner">
 									<header class="major">
-										<h1>Intento</h1>
+										<h2>Galería de Ilustración</h2>
 									</header>
-									<span class="image main"><img src="images/pic11.jpg" alt="" /></span>
+									<p>Una muestra de mis dibujos, bocetos y animaciones. Exploro la creación de personajes, escenarios y narrativa visual a través del medio digital y tradicional. Haz clic sobre cualquier obra para verla en detalle.</p>
 									
-									<p>Hola, te amo. Ahora debe iniciar un nuevo parrafo.</p>
-									<p>nuevo parrafo</p>
-									A partir de ahora no deberian crearse nuevos parrafos y deberia ser todo texto continuo. No se como se ponen tildes en tu computadora, nunca termine de acostumbrarme aunque se siente premium la verdad sea dicha. BUENO, ME VOY A ESTUDIAR, LASTIMOSAMENTE. 
+									<div class="photo-grid">
+										<div class="photo-item" data-src="images/pic11.jpg" data-caption="Primer intento en digital">
+											<img src="images/pic11.jpg" alt="Primer intento en digital" />
+											<div class="photo-overlay">
+												<h4>Retrato Digital</h4>
+												<span>Ver Obra</span>
+											</div>
+										</div>
+										<div class="photo-item" data-src="images/pic01.jpg" data-caption="Exploración de colores cálidos">
+											<img src="images/pic01.jpg" alt="Exploración de colores cálidos" />
+											<div class="photo-overlay">
+												<h4>Estudio de Color</h4>
+												<span>Ver Obra</span>
+											</div>
+										</div>
+										<div class="photo-item" data-src="images/pic02.jpg" data-caption="Diseño de escenarios urbanos">
+											<img src="images/pic02.jpg" alt="Diseño de escenarios urbanos" />
+											<div class="photo-overlay">
+												<h4>Escenarios</h4>
+												<span>Ver Obra</span>
+											</div>
+										</div>
+										<div class="photo-item" data-src="images/pic03.jpg" data-caption="Expresividad y movimiento">
+											<img src="images/pic03.jpg" alt="Expresividad y movimiento" />
+											<div class="photo-overlay">
+												<h4>Bocetos</h4>
+												<span>Ver Obra</span>
+											</div>
+										</div>
+									</div>
 								</div>
 							</section>
 
@@ -123,19 +276,25 @@
 					<footer id="footer">
 						<div class="inner">
 							<ul class="icons">
-								<li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
-								<li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
-								<li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
-								<li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
-								<li><a href="#" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+								<li><a href="https://www.instagram.com/bitarchiven" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
+							
 							</ul>
 							<ul class="copyright">
-								<li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+								<li>&copy; Nahobe Ibarra</li><li>Diseño Original: <a href="https://html5up.net">HTML5 UP</a></li>
 							</ul>
 						</div>
 					</footer>
 
 			</div>
+
+		<!-- Lightbox HTML Modal -->
+		<div id="lightbox" class="lightbox-modal">
+			<div class="lightbox-content">
+				<button class="lightbox-close" id="lightbox-close">&times;</button>
+				<img class="lightbox-img" id="lightbox-img" src="" alt="" />
+				<div class="lightbox-caption" id="lightbox-caption"></div>
+			</div>
+		</div>
 
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
@@ -145,6 +304,53 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+
+			<script>
+				// Lightbox Logic
+				document.addEventListener('DOMContentLoaded', () => {
+					const lightbox = document.getElementById('lightbox');
+					const lightboxImg = document.getElementById('lightbox-img');
+					const lightboxCaption = document.getElementById('lightbox-caption');
+					const closeBtn = document.getElementById('lightbox-close');
+					const photoItems = document.querySelectorAll('.photo-item');
+
+					photoItems.forEach(item => {
+						item.addEventListener('click', () => {
+							const src = item.getAttribute('data-src');
+							const caption = item.getAttribute('data-caption');
+							
+							lightboxImg.src = src;
+							lightboxCaption.textContent = caption;
+							
+							lightbox.classList.add('active');
+							document.body.style.overflow = 'hidden';
+						});
+					});
+
+					const closeLightbox = () => {
+						lightbox.classList.remove('active');
+						document.body.style.overflow = '';
+						setTimeout(() => {
+							lightboxImg.src = '';
+							lightboxCaption.textContent = '';
+						}, 300);
+					};
+
+					closeBtn.addEventListener('click', closeLightbox);
+					
+					lightbox.addEventListener('click', (e) => {
+						if (e.target === lightbox) {
+							closeLightbox();
+						}
+					});
+
+					document.addEventListener('keydown', (e) => {
+						if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+							closeLightbox();
+						}
+					});
+				});
+			</script>
 
 	</body>
 </html>
