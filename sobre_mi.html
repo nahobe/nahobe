@@ -6,10 +6,21 @@
 -->
 <html>
 	<head>
-		<title>Generic - Forty by HTML5 UP</title>
+		<title>Sobre Mí</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
+		        <!-- SEO y Open Graph Meta Tags -->
+        <meta name="description" content="Portafolio audiovisual de Nahobe Ibarra. Explorando la creación de imágenes y narrativas visuales a través de la fotografía, edición, ilustración y escritura." />
+        <meta property="og:title" content="Nahobe - Portafolio Audiovisual" />
+        <meta property="og:description" content="Descubre el trabajo de Nahobe Ibarra: Fotografía, Montaje, Ilustración y Textos personales." />
+        <meta property="og:image" content="https://nahobe.github.io/nahobe/images/banner.jpg" />
+        <meta property="og:url" content="https://nahobe.github.io/nahobe/" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Nahobe - Portafolio" />
+        <meta name="twitter:description" content="Descubre el trabajo audiovisual y artístico de Nahobe Ibarra." />
+        <meta name="twitter:image" content="https://nahobe.github.io/nahobe/images/banner.jpg" />
+        <link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
 	<body class="is-preload">
@@ -20,8 +31,10 @@
 				<!-- Header -->
 					<header id="header">
 					
+						<a href="index.html" class="logo"><strong>Portafolio</strong> <span>Audiovisual</span></a>
+					
 						<nav>
-							<a href="#menu">Menu</a>
+							<a href="#menu">Menú</a>
 						</nav>
 					</header>
 
@@ -30,7 +43,7 @@
                         <ul class="links">
                             <li><a href="index.html">Inicio</a></li>
                     
-                            <li><a href="generic.html">Sobre Mí</a></li>
+                            <li><a href="sobre_mi.html">Sobre Mí</a></li>
             
                         </ul>
                         <ul class="actions stacked">
@@ -62,15 +75,21 @@
                     <section id="contact">
                         <div class="inner">
                             <section>
-                                <form method="post" action="#">
-                                    <div class="fields">
+								<form method="post" action="https://formsubmit.co/nahobenubli@gmail.com">
+    
+    <!-- Esta línea te redirige a tu página web después de enviar el mensaje -->
+									<input type="hidden" name="_next" value="https://nahobe.github.io/nahobe/index.html">
+    <!-- Opcional: Esta línea desactiva el molesto Captcha de "No soy un robot" -->
+									<input type="hidden" name="_captcha" value="false">
+        <!-- El resto de tus campos de Nombre, Correo y Mensaje siguen igual -->
+									<div class="fields">
                                         <div class="field half">
                                             <label for="name">Nombre</label>
                                             <input type="text" name="name" id="name" />
                                         </div>
                                         <div class="field half">
                                             <label for="email">Correo Electrónico</label>
-                                            <input type="text" name="email" id="email" />
+                                            <input type="email" name="email" id="email" />
                                         </div>
                                         <div class="field">
                                             <label for="message">Mensaje</label>
@@ -108,7 +127,7 @@
                     <footer id="footer">
                         <div class="inner">
                             <ul class="icons">
-                                <li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
+                                <li><a href="https://www.instagram.com/bitarchiven" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
                             
                             </ul>
                             <ul class="copyright">

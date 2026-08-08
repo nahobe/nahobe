@@ -6,11 +6,148 @@
 -->
 <html>
 	<head>
-		<title>Landing - Forty by HTML5 UP</title>
+		<title>Escritos</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
+		        <!-- SEO y Open Graph Meta Tags -->
+        <meta name="description" content="Portafolio audiovisual de Nahobe Ibarra. Explorando la creación de imágenes y narrativas visuales a través de la fotografía, edición, ilustración y escritura." />
+        <meta property="og:title" content="Nahobe - Portafolio Audiovisual" />
+        <meta property="og:description" content="Descubre el trabajo de Nahobe Ibarra: Fotografía, Montaje, Ilustración y Textos personales." />
+        <meta property="og:image" content="https://nahobe.github.io/nahobe/images/banner.jpg" />
+        <meta property="og:url" content="https://nahobe.github.io/nahobe/" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Nahobe - Portafolio" />
+        <meta name="twitter:description" content="Descubre el trabajo audiovisual y artístico de Nahobe Ibarra." />
+        <meta name="twitter:image" content="https://nahobe.github.io/nahobe/images/banner.jpg" />
+        <link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<style>
+			/* Photo Grid Gallery */
+			.photo-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+				gap: 1.5em;
+				margin-top: 2em;
+			}
+			.photo-item {
+				position: relative;
+				overflow: hidden;
+				border-radius: 4px;
+				box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+				aspect-ratio: 4 / 3;
+				cursor: pointer;
+			}
+			.photo-item img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+				display: block;
+			}
+			.photo-item:hover img {
+				transform: scale(1.08);
+			}
+			.photo-overlay {
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				background: rgba(36, 41, 67, 0.85); /* Matches template theme */
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				opacity: 0;
+				transition: opacity 0.3s ease;
+				padding: 1em;
+				text-align: center;
+			}
+			.photo-item:hover .photo-overlay {
+				opacity: 1;
+			}
+			.photo-overlay h4 {
+				color: #ffffff;
+				margin: 0 0 0.5em 0;
+				font-size: 1.1em;
+				font-weight: 600;
+				letter-spacing: 0.05em;
+			}
+			.photo-overlay span {
+				color: rgba(255, 255, 255, 0.7);
+				font-size: 0.8em;
+				text-transform: uppercase;
+				letter-spacing: 0.1em;
+				border: 1px solid rgba(255, 255, 255, 0.5);
+				padding: 0.3em 0.8em;
+				border-radius: 2px;
+			}
+
+			/* Lightbox Modal */
+			.lightbox-modal {
+				display: none;
+				position: fixed;
+				z-index: 11000;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background: rgba(10, 12, 22, 0.95);
+				align-items: center;
+				justify-content: center;
+				opacity: 0;
+				transition: opacity 0.3s ease;
+			}
+			.lightbox-modal.active {
+				display: flex;
+				opacity: 1;
+			}
+			.lightbox-content {
+				max-width: 90%;
+				max-height: 85%;
+				position: relative;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+			}
+			.lightbox-img {
+				max-width: 100%;
+				max-height: 75vh;
+				display: block;
+				border-radius: 4px;
+				box-shadow: 0 5px 25px rgba(0,0,0,0.8);
+				transform: scale(0.95);
+				transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+			}
+			.lightbox-modal.active .lightbox-img {
+				transform: scale(1);
+			}
+			.lightbox-close {
+				position: absolute;
+				top: -45px;
+				right: 0;
+				color: #ffffff;
+				font-size: 35px;
+				cursor: pointer;
+				background: none;
+				border: none;
+				padding: 5px 10px;
+				line-height: 1;
+				transition: color 0.2s ease;
+			}
+			.lightbox-close:hover {
+				color: #9bf1ff;
+			}
+			.lightbox-caption {
+				color: #ffffff;
+				text-align: center;
+				margin-top: 15px;
+				font-size: 1em;
+				letter-spacing: 0.05em;
+				font-weight: 300;
+			}
+		</style>
 	</head>
 	<body class="is-preload">
 
@@ -20,8 +157,9 @@
 				<!-- Header -->
 				<!-- Note: The "styleN" class below should match that of the banner element. -->
 					<header id="header" class="alt style2">
+						<a href="index.html" class="logo"><strong>Portafolio</strong> <span>Audiovisual</span></a>
 						<nav>
-							<a href="#menu">Menu</a>
+							<a href="#menu">Menú</a>
 						</nav>
 					</header>
 
@@ -30,7 +168,7 @@
                         <ul class="links">
                             <li><a href="index.html">Inicio</a></li>
                     
-                            <li><a href="generic.html">Sobre Mí</a></li>
+                            <li><a href="sobre_mi.html">Sobre Mí</a></li>
             
                         </ul>
                         <ul class="actions stacked">
@@ -58,57 +196,94 @@
 				<!-- Main -->
 					<div id="main">
 
-					<!-- One -->
+						<!-- Gallery Section -->
 							<section id="one">
 								<div class="inner">
 									<header class="major">
-										<h2>La luz de mi ventana</h2>
+										<h2>Galería de Escritos</h2>
 									</header>
+									<p>Una recopilación de mis textos personales. Haz clic sobre cada captura para leer los poemas y relatos en pantalla completa.</p>
+									
+									<div class="photo-grid">
+										<div class="photo-item" data-src="images/Escritos/La luz de mi ventana.jpg" data-caption="La luz de mi ventana">
+											<img src="images/Escritos/La luz de mi ventana.jpg" alt="La luz de mi ventana" />
+											<div class="photo-overlay">
+												<h4>La luz de mi ventana</h4>
+												<span>Leer texto</span>
+											</div>
+										</div>
+										<div class="photo-item" data-src="images/Escritos/Rendija.jpg" data-caption="Rendija">
+											<img src="images/Escritos/Rendija.jpg" alt="Rendija" />
+											<div class="photo-overlay">
+												<h4>Rendija</h4>
+												<span>Leer texto</span>
+											</div>
+										</div>
+										<div class="photo-item" data-src="images/Escritos/Impia.jpg" data-caption="Impía">
+											<img src="images/Escritos/Impia.jpg" alt="Impía" />
+											<div class="photo-overlay">
+												<h4>Impía</h4>
+												<span>Leer texto</span>
+											</div>
+										</div>
+										<div class="photo-item" data-src="images/Escritos/Cuando me haya ido.jpg" data-caption="Cuando me haya ido">
+											<img src="images/Escritos/Cuando me haya ido.jpg" alt="Cuando me haya ido" />
+											<div class="photo-overlay">
+												<h4>Cuando me haya ido</h4>
+												<span>Leer texto</span>
+											</div>
+										</div>
+										<div class="photo-item" data-src="images/Escritos/Hambre de días.jpg" data-caption="Hambre de días">
+											<img src="images/Escritos/Hambre de días.jpg" alt="Hambre de días" />
+											<div class="photo-overlay">
+												<h4>Hambre de días</h4>
+												<span>Leer texto</span>
+											</div>
+										</div>
+										<div class="photo-item" data-src="images/Escritos/Manos frías.jpg" data-caption="Manos frías">
+											<img src="images/Escritos/Manos frías.jpg" alt="Manos frías" />
+											<div class="photo-overlay">
+												<h4>Manos frías</h4>
+												<span>Leer texto</span>
+											</div>
+										</div>
+										<div class="photo-item" data-src="images/Escritos/Nostalgia.jpg" data-caption="Nostalgia">
+											<img src="images/Escritos/Nostalgia.jpg" alt="Nostalgia" />
+											<div class="photo-overlay">
+												<h4>Nostalgia</h4>
+												<span>Leer texto</span>
+											</div>
+										</div>
+										<div class="photo-item" data-src="images/Escritos/Para volver a nacer.jpg" data-caption="Para volver a nacer">
+											<img src="images/Escritos/Para volver a nacer.jpg" alt="Para volver a nacer" />
+											<div class="photo-overlay">
+												<h4>Para volver a nacer</h4>
+												<span>Leer texto</span>
+											</div>
+										</div>
+										<div class="photo-item" data-src="images/Escritos/Quizás.jpg" data-caption="Quizás">
+											<img src="images/Escritos/Quizás.jpg" alt="Quizás" />
+											<div class="photo-overlay">
+												<h4>Quizás</h4>
+												<span>Leer texto</span>
+											</div>
+										</div>
+										<div class="photo-item" data-src="images/Escritos/Recuérdame.jpg" data-caption="Recuérdame">
+											<img src="images/Escritos/Recuérdame.jpg" alt="Recuérdame" />
+											<div class="photo-overlay">
+												<h4>Recuérdame</h4>
+												<span>Leer texto</span>
+											</div>
+										</div>
+										<div class="photo-item" data-src="images/Escritos/Vida ajena.jpg" data-caption="Vida ajena">
+											<img src="images/Escritos/Vida ajena.jpg" alt="Vida ajena" />
+											<div class="photo-overlay">
+												<h4>Vida ajena</h4>
+												<span>Leer texto</span>
+											</div>
+										</div>
+									</div>
 								</div>
-							</section>
-
-						<!-- Two -->
-							<section id="two" class="spotlights">
-								<section>
-									<a href="generic.html" class="image">
-										<img src="images/Escritos/La luz de mi ventana.jpg" alt="" data-position="center center" />
-									</a>
-									<div class="content">
-										<div class="inner">
-											<header class="major">
-												<h3>La luz de mi ventana</h3>
-											</header>
-											
-										</div>
-									</div>
-								</section>
-								<section>
-									<a href="generic.html" class="image">
-										<img src="images/Escritos/Rendija.jpg" alt="" data-position="top center" />
-									</a>
-									<div class="content">
-										<div class="inner">
-											<header class="major">
-												<h3>Rendija</h3>
-											</header>
-											
-										</div>
-									</div>
-								</section>
-								<section>
-									<a href="generic.html" class="image">
-										<img src="images/Escritos/Impía.jpg" alt="" data-position="25% 25%" />
-									</a>
-									<div class="content">
-										<div class="inner">
-											<header class="major">
-												<h3>Impía</h3>
-											</header>
-											<p>Nullam et orci eu lorem consequat tincidunt vivamus et sagittis magna sed nunc rhoncus condimentum sem. In efficitur ligula tate urna. Maecenas massa sed magna lacinia magna pellentesque lorem ipsum dolor. Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis tempus.</p>
-											
-										</div>
-									</div>
-								</section>
 							</section>
 
 
@@ -132,7 +307,7 @@
                                         </div>
                                         <div class="field half">
                                             <label for="email">Correo Electrónico</label>
-                                            <input type="text" name="email" id="email" />
+                                            <input type="email" name="email" id="email" />
                                         </div>
                                         <div class="field">
                                             <label for="message">Mensaje</label>
@@ -181,6 +356,15 @@
 
             </div>
 
+		<!-- Lightbox HTML Modal -->
+		<div id="lightbox" class="lightbox-modal">
+			<div class="lightbox-content">
+				<button class="lightbox-close" id="lightbox-close">&times;</button>
+				<img class="lightbox-img" id="lightbox-img" src="" alt="" />
+				<div class="lightbox-caption" id="lightbox-caption"></div>
+			</div>
+		</div>
+
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/jquery.scrolly.min.js"></script>
@@ -189,6 +373,53 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+
+			<script>
+				// Lightbox Logic
+				document.addEventListener('DOMContentLoaded', () => {
+					const lightbox = document.getElementById('lightbox');
+					const lightboxImg = document.getElementById('lightbox-img');
+					const lightboxCaption = document.getElementById('lightbox-caption');
+					const closeBtn = document.getElementById('lightbox-close');
+					const photoItems = document.querySelectorAll('.photo-item');
+
+					photoItems.forEach(item => {
+						item.addEventListener('click', () => {
+							const src = item.getAttribute('data-src');
+							const caption = item.getAttribute('data-caption');
+							
+							lightboxImg.src = src;
+							lightboxCaption.textContent = caption;
+							
+							lightbox.classList.add('active');
+							document.body.style.overflow = 'hidden';
+						});
+					});
+
+					const closeLightbox = () => {
+						lightbox.classList.remove('active');
+						document.body.style.overflow = '';
+						setTimeout(() => {
+							lightboxImg.src = '';
+							lightboxCaption.textContent = '';
+						}, 300);
+					};
+
+					closeBtn.addEventListener('click', closeLightbox);
+					
+					lightbox.addEventListener('click', (e) => {
+						if (e.target === lightbox) {
+							closeLightbox();
+						}
+					});
+
+					document.addEventListener('keydown', (e) => {
+						if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+							closeLightbox();
+						}
+					});
+				});
+			</script>
 
 	</body>
 </html>
