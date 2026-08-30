@@ -1,0 +1,39 @@
+/* Ajustes propios del sitio.
+   No editar assets/css/main.css: se genera desde assets/sass y se pisa al recompilar. */
+
+/* El template define .image img { display: block } sin límite de ancho, así que
+   una foto se dibuja a su tamaño natural y estira la página. Red de seguridad
+   para cualquier imagen dentro de un .image que sea un bloque. */
+.image img {
+	max-width: 100%;
+	height: auto;
+}
+
+/* --- Foto de perfil de Sobre Mí ---
+   El .image del template es inline-block y se ajusta al contenido, con lo cual
+   un max-width en porcentaje sobre la imagen se resuelve de forma circular y no
+   la limita. Por eso el span lleva display:block y un ancho definido. */
+.perfil {
+	display: block;
+	max-width: 250px;
+}
+
+.perfil img {
+	display: block;
+	width: 100%;
+	height: auto;
+	border-radius: 8px;
+}
+
+@media screen and (max-width: 736px) {
+
+	/* Flotada dejaba renglones de una sola palabra junto a la foto.
+	   En pantallas angostas va centrada y el texto debajo. */
+	.perfil.image.left {
+		float: none;
+		margin: 0 auto 1.5em auto;
+		max-width: 220px;
+		top: 0;
+	}
+
+}
