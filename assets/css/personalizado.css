@@ -10,9 +10,16 @@
 }
 
 /* Reproductor destacado de la sección Edición. */
+#main > .featured-video > .inner {
+	max-width: 90em;
+	width: calc(100% - 4em);
+}
+
 .featured-video .video-wrapper {
 	background: #1f2338;
 	box-shadow: 0 1em 2em rgba(0, 0, 0, 0.2);
+	margin-left: auto;
+	margin-right: auto;
 	position: relative;
 	padding-bottom: 56.25%;
 	height: 0;
@@ -30,6 +37,12 @@
 
 .featured-video .actions {
 	margin-top: 1.5em;
+}
+
+@media screen and (max-width: 736px) {
+	#main > .featured-video > .inner {
+		width: calc(100% - 2em);
+	}
 }
 
 /* --- Foto de perfil de Sobre Mí ---
