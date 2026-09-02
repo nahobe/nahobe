@@ -9,6 +9,29 @@
 	height: auto;
 }
 
+/* Reproductor destacado de la sección Edición. */
+.featured-video .video-wrapper {
+	background: #1f2338;
+	box-shadow: 0 1em 2em rgba(0, 0, 0, 0.2);
+	position: relative;
+	padding-bottom: 56.25%;
+	height: 0;
+	overflow: hidden;
+}
+
+.featured-video .video-wrapper iframe {
+	border: 0;
+	height: 100%;
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 100%;
+}
+
+.featured-video .actions {
+	margin-top: 1.5em;
+}
+
 /* --- Foto de perfil de Sobre Mí ---
    El .image del template es inline-block y se ajusta al contenido, con lo cual
    un max-width en porcentaje sobre la imagen se resuelve de forma circular y no
