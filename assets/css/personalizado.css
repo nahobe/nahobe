@@ -9,10 +9,10 @@
 	height: auto;
 }
 
-/* Reproductor destacado de la sección Edición. */
+/* Reproductores de Edición: hasta 5 cm de margen por lado en escritorio. */
 #main > .featured-video > .inner {
 	max-width: 90em;
-	width: calc(100% - 4em);
+	width: calc(100% - clamp(2em, 32vw, 10cm));
 }
 
 .featured-video .video-wrapper {
